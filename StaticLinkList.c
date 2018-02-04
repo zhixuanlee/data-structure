@@ -21,5 +21,22 @@ int InitList(StaticLinkList space)
 
 int StaticLinkListInsert(StaticLinkList space, int i, int e)
 {
+	if (i<1 || i>space[0].cur)
+	{
+		printf("the location out of range");
+	}
+	
+	int j=0;
+	int t = space[0].cur;
+	while (j<i)
+	{
+		j = space[j].cur;
+	}
+	
+	space[t].data = e;
+	space[t].cur = space[space[j].cur].cur;
+	space[j].cur = t;
+	space[0].cur++;
 
 }
+
